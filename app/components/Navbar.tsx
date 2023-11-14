@@ -21,16 +21,25 @@ export default function NavbarComponent() {
     { href: "#", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
+
   const curr = usePathname(); // get current path
 
   return (
-    <Navbar disableAnimation={true}>
-      <NavbarBrand>
-        <p className="font-bold text-inherit">Meow</p>
-      </NavbarBrand>
-
+    <Navbar
+      disableAnimation={true}
+      className="mb-4"
+      classNames={{
+        base: "px-0 justify-between max-w-full",
+        wrapper: "px-0 max-w-full",
+      }}
+    >
       {/* small screen */}
-      <NavbarMenuToggle className="sm:hidden" />
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle />
+        <NavbarBrand>
+          <p className="font-bold text-inherit">Meow</p>
+        </NavbarBrand>
+      </NavbarContent>
 
       <NavbarMenu>
         {links.map(({ href, label }) => (
@@ -43,11 +52,18 @@ export default function NavbarComponent() {
       </NavbarMenu>
 
       {/* large screen */}
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+
+      <NavbarContent className="hidden sm:flex">
+        <NavbarBrand>
+          <p className="font-bold xl:text-xl">Meow</p>
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent justify="center" className="hidden sm:flex gap-4 md:gap-8">
         {links.map(({ href, label }) => (
           <NavbarItem key={`${href}${label}`} isActive={curr === href}>
             <Link color={curr === href ? "primary" : "foreground"} href={href}>
-              {label}
+              <p className="xl:text-xl">{label}</p>
             </Link>
           </NavbarItem>
         ))}

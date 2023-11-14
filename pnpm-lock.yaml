@@ -8,6 +8,9 @@ dependencies:
   "@nextui-org/react":
     specifier: ^2.2.9
     version: 2.2.9(@types/react@18.2.37)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0)(tailwind-variants@0.1.18)(tailwindcss@3.3.5)
+  "@tanstack/react-query":
+    specifier: ^5.8.3
+    version: 5.8.3(react-dom@18.2.0)(react@18.2.0)
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -23,6 +26,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
+  recoil:
+    specifier: ^0.7.7
+    version: 0.7.7(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   "@total-typescript/ts-reset":
@@ -3112,6 +3118,33 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@tanstack/query-core@5.8.3:
+    resolution:
+      {
+        integrity: sha512-SWFMFtcHfttLYif6pevnnMYnBvxKf3C+MHMH7bevyYfpXpTMsLB9O6nNGBdWSoPwnZRXFNyNeVZOw25Wmdasow==,
+      }
+    dev: false
+
+  /@tanstack/react-query@5.8.3(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-EDRrsMgUtKM+SjVmhDYBd4jwWWyHAw3kCaurKLIO90OfPQr/UhpwcqM2l/eQOaUYon9lfDB2ejQi1edHK7zEdA==,
+      }
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      react-native: "*"
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      "@tanstack/query-core": 5.8.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@total-typescript/ts-reset@0.5.1:
     resolution:
       {
@@ -4924,6 +4957,13 @@ packages:
       }
     dev: true
 
+  /hamt_plus@1.0.2:
+    resolution:
+      {
+        integrity: sha512-t2JXKaehnMb9paaYA7J0BX8QQAY8lwfQ9Gjf4pg/mk4krt+cmwmU652HOoWonf+7+EQV97ARPMhhVgU1ra2GhA==,
+      }
+    dev: false
+
   /has-bigints@1.0.2:
     resolution:
       {
@@ -6366,6 +6406,26 @@ packages:
     engines: { node: ">=8.10.0" }
     dependencies:
       picomatch: 2.3.1
+
+  /recoil@0.7.7(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-8Og5KPQW9LwC577Vc7Ug2P0vQshkv1y3zG3tSSkWMqkWSwHmE+by06L8JtnGocjW6gcCvfwB3YtrJG6/tWivNQ==,
+      }
+    peerDependencies:
+      react: ">=16.13.1"
+      react-dom: "*"
+      react-native: "*"
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      hamt_plus: 1.0.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /reflect.getprototypeof@1.0.4:
     resolution:
