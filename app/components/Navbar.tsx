@@ -6,18 +6,18 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-} from "@nextui-org/react";
+} from "@nextui-org/navbar";
+import { Link } from "@nextui-org/link";
 
 import { usePathname } from "next/navigation";
 
-export default function App() {
+export default function NavbarComponent() {
   const links = [
     { href: "/", label: "Home" },
-    { href: "#", label: "Catalog" },
+    { href: "/catalog", label: "Catalog" },
     { href: "#", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
