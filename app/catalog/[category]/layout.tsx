@@ -3,7 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { getPost } from "@/app/queries";
+import { getAllCategory } from "@/app/queries";
 
 type Props = {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ type Props = {
 const Layout = async (props: Props) => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(getPost);
+  await queryClient.prefetchQuery(getAllCategory);
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

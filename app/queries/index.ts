@@ -1,3 +1,3 @@
-import getPost from "./getPost";
+import getAllCategory from "./getAllCategory";
 
-export { getPost };
+export { getAllCategory };

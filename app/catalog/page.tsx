@@ -4,7 +4,7 @@ import { Link } from "@nextui-org/link";
 const Page = async () => {
   return (
     <div>
-      <Link href="/catalog/a">Category a</Link>
+      <Link href="/catalog/funny">Category funny</Link>
     </div>
   );
 };

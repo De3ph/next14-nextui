@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  params: { category: string };
+  params: { title: string };
 };
 
 const Page = async ({ params }: Props) => {

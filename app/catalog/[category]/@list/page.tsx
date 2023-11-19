@@ -1,18 +1,51 @@
-"use client";
+// "use client";
 
+// import { getAllCategory } from "@/app/queries";
+import { Category } from "@/types";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { Listbox, ListboxItem } from "@nextui-org/listbox";
 
-const Page = () => {
+async function getCategory(category: string) {
+  const res = await fetch(
+    `http://localhost:3000/catalog/api/?category=${category}`,
+  );
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+const Page = async ({
+  params: { category },
+}: {
+  params: { category: string };
+}) => {
+  /* 
+  
+  // client side fetching with react-query (prefetch on server)
+
+  const {
+    data: { data },
+  } = useQuery(getAllCategory); */
+
+  const data = await getCategory(category);
+
   return (
-    <Listbox aria-label="Actions">
-      <ListboxItem key="new">New file</ListboxItem>
-      <ListboxItem key="copy">Copy link</ListboxItem>
-      <ListboxItem key="edit">Edit file</ListboxItem>
-      <ListboxItem key="submit" className="text-success" color="success">
-        Submit
-      </ListboxItem>
-    </Listbox>
+    <div>
+      <h1 className="mb-3 font-bold text-xl">Categories</h1>
+      <ul>
+        {data?.map((category: Category) => {
+          return (
+            <li key={category.id}>
+              {category.id} | {category.title}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 
