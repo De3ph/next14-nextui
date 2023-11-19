@@ -7,8 +7,8 @@ import { getAllCategory } from "@/app/queries";
 
 type Props = {
   children: React.ReactNode;
-  infos: React.ReactNode;
-  list: React.ReactNode;
+  individual: React.ReactNode;
+  all: React.ReactNode;
 };
 
 const Layout = async (props: Props) => {
@@ -21,8 +21,8 @@ const Layout = async (props: Props) => {
       <div className="w-full min-h-full flex flex-col space-y-10">
         {props.children}
         <div className="grid grid-cols-2">
-          {props.list}
-          {props.infos}
+          {props.all}
+          {props.individual}
         </div>
       </div>
     </HydrationBoundary>
