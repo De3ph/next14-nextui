@@ -15,7 +15,6 @@ const Page = ({ params: { category } }: { params: { category: string } }) => {
   const {
     data: { data },
   } = useQuery(getAllCategory);
-  console.log("🚀 ~ file: page.tsx:16 ~ Page ~ data:", data);
 
   return (
     <div>

@@ -17,15 +17,17 @@ const Layout = async (props: Props) => {
   await queryClient.prefetchQuery(getAllCategory);
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
+    <div>
       <div className="w-full min-h-full flex flex-col space-y-10">
         {props.children}
-        <div className="grid grid-cols-2">
-          {props.all}
-          {props.individual}
-        </div>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <div className="grid grid-cols-2">
+            {props.all}
+            {props.individual}
+          </div>
+        </HydrationBoundary>
       </div>
-    </HydrationBoundary>
+    </div>
   );
 };
 
